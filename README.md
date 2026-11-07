@@ -1,5 +1,47 @@
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
+# SkillPilot
+
+AI career advisor that scores a user's skills against career paths and shows the result as a score card.
+
+## Tool contract
+
+**Name:** `scoreCareerFit`
+**File:** `lib/tools/scoreCareerFit.ts`
+
+**Input schema (Zod):**
+```ts
+z.object({
+  skills: z.array(z.string()).min(1)
+})
+```
+
+**Return shape:**
+```ts
+{
+  results: [
+    { career: string, score: number, matched: string[], missing: string[] }
+  ]
+}
+```
+
+**How scoring works:** ___ (one or two sentences: the weights you chose and the low-core-coverage penalty)
+
+## Tool states
+
+| State | What the user sees |
+|---|---|
+| input-streaming | Reading Your Skills |
+| input-available |Scoring |
+| output-available | Result |
+| output-error | Something went wrong |
+
+## Run locally
+
+1. `npm install`
+2. Create `.env.local` with `OPENROUTER_API_KEY=...`
+3. `npm run dev`
+
 ## Getting Started
 
 First, run the development server:
